@@ -1,1 +1,1 @@
-<script type="module" src="how-2-js.js"></script>
+console.log('Hello World')
