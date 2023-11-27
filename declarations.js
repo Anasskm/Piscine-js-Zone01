@@ -1,11 +1,11 @@
-const escapeStr = "\"`/\\'"
-const arr = [4 , '2']
+const escapeStr = "\"`/\\'";
+const arr = [4 , '2'];
 const obj = {
     str : "zebi",
     num : 0  ,
     bool : true ,
     undef : undefined 
-}
+};
 
 const nested = {
     arr : [4,undefined,'2'],
@@ -14,7 +14,7 @@ const nested = {
         num : 0  ,
         bool : true ,
     }
-}
-Object.freeze(nested)
-Object.freeze(obj)
-Object.freeze(arr)
+};
+Object.freeze(nested);
+Object.freeze(obj);
+Object.freeze(arr);
