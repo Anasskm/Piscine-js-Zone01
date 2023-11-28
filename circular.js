@@ -1,3 +1,3 @@
-var circular = {
-    circular : "circular",
+const circular = {
+    circular : this.circular
 }
