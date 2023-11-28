@@ -1,14 +1,12 @@
 function max(x,y){
-    x,y= parseFloat(x),parseFloat(y)
     if (x>y) {
-        return x
+        return parseFloat(x)
     }
-    return y
+    return parseFloat(y)
 }
 function min(x,y){
-    x,y= parseFloat(x),parseFloat(y)
     if (x>y) {
-        return y
+        return parseFloat(y)
     }
-    return x
+    return parseFloat(x)
 }
