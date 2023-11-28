@@ -7,7 +7,7 @@ function isPositive(n){
 }
 function abs(n){
     if(isPositive){
-        return n
+        return parseFloat(n)
     }   
-    return -n
+    return parseFloat(-n)
 }
