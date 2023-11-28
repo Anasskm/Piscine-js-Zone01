@@ -1,3 +1,3 @@
 var circular = {
-    circular : circular,
+    circular : "circular",
 }
