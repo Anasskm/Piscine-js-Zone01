@@ -10,7 +10,7 @@ neptune:  164.79132 ,
     
 }
 function dogYears(planet ,dog){
-    if(palnet == "earth"){
+    if(planet == "earth"){
         let a = (dog /age.earth)*7
         return a.toFixed(2)
     }
