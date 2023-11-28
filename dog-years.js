@@ -10,7 +10,7 @@ const age = {
 
 }
 function dogYears(planet, dog) {
-    if (planet == "earth") {
+    if (planet == 'earth') {
         let a = (dog / age.earth) * 7
         return a.toFixed(2)
     }
