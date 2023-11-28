@@ -1,3 +1,4 @@
-const circular = {
-    circular : this.circular
-}
+let circular = {
+    circular: null 
+  };
+  circular.circular = circular;
