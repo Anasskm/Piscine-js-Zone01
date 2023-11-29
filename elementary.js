@@ -8,15 +8,17 @@ function multiply(a, b) {
     for (let i = 0; i < b; i++) {
         result += a;
     }
-
-    return sign * result;
+    if (sign){
+        return -result
+    }
+    return result;
 }
 function divide(a, b) {
     if (b === 0) {
         throw new Error("Division by zero is undefined.");
     }
 
-    let sign = (a < 0) !== (b < 0) ? -1 : 1;
+    let sign = (a < 0) !== (b < 0) ;
 
     a = Math.abs(a);
     b = Math.abs(b);
@@ -26,8 +28,10 @@ function divide(a, b) {
         a -= b;
         quotient++;
     }
-
-    return sign * quotient;
+    if (sign){
+        return -quotient
+    }
+    return quotient;
 }
 function modulo(a, b) {
     return a - multiply(divide(a, b), b);
