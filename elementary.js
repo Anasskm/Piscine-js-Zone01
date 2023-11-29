@@ -1,53 +1,33 @@
 function multiply(a, b) {
-    if (a<0 && b<0){
-        a ,b= -a,-b
-    }
-    let sign = false
-    if(a<0){
-        sign = true
-        a = -a
-    }
-    if(b<0){
-        sign = true
-        b = -b
-    }
-    let result = 0
+    let result = 0;
+    let sign = (a < 0) !== (b < 0) ? -1 : 1;
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
     for (let i = 0; i < b; i++) {
-        result += a
+        result += a;
     }
-    if (!sign){
-        return result
-    }
-    return -result
+
+    return sign * result;
 }
-
-
 function divide(a, b) {
-    if (a<0 && b<0){
-        a ,b= -a,-b
-    }
-    let sign = false
-    if(a<0){
-        sign = true
-        a = -a
-    }
-    if(b<0){
-        sign = true
-        b = -b
-    }
     if (b === 0) {
-        return Infinity
+        throw new Error("Division by zero is undefined.");
     }
 
-    let q = 0;
+    let sign = (a < 0) !== (b < 0) ? -1 : 1;
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    let quotient = 0;
     while (a >= b) {
         a -= b;
-        q++;
+        quotient++;
     }
-    if (sign){
-        return -q
-    }
-    return q;
+
+    return sign * quotient;
 }
 function modulo(a, b) {
     return a - multiply(divide(a, b), b);
