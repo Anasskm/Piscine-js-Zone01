@@ -1,9 +1,9 @@
 function repeat(s,i) {
-   
-   for (let index = 0; index < i; index++) {
-  
-   s += s
-}
-return s
-   
-}
+    var t = s
+    for (let index = 0; index < i-1; index++) {
+ 
+    t += s
+ }
+ return t
+    
+ }
