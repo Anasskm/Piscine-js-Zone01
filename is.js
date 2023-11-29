@@ -6,7 +6,7 @@ is.num = function (a) {
 }
 
 is.nan = function (a) {
-    if (!is.num(a)) {
+    if (typeof (a) != 'number') {
         return true
     }
     return false
