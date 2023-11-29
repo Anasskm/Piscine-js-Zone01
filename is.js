@@ -54,15 +54,16 @@ is.fun = function (a) {
 }
 
 is.truthy = function (a) {
-    if (a == true) {
+    if (a && true) {
         return true
     }
     return false
 }
 
 is.falsy = function (a) {
-    if (a == false) {
+    if (!(a && true)) {
         return true
     }
     return false
+
 }
