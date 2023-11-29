@@ -1,66 +1,11 @@
-is.num = function (a) {
-    if (typeof (a) == 'number') {
-        return true
-    }
-    return false
-}
-
-is.nan = function (a) {
-    return Number.isNaN(a)
-}
-is.str = function (a) {
-    if (typeof (a) == 'string') {
-        return true
-    }
-    return false
-}
-is.bool = function (a) {
-    if (typeof (a) == 'boolean') {
-        return true
-    }
-    return false
-}
-is.undef = function (a) {
-    if (a == undefined) {
-        return true
-    }
-    return false
-}
-
-is.def = function (a) {
-    if (a != undefined) {
-        return true
-    }
-    return false
-}
-is.arr = function (a) {
-    Array.isArray(a)
-}
-is.obj = function (a) {
-    if (typeof (a) == 'object' && !Array.isArray(a)) {
-        return true
-    }
-    return false
-}
-
-is.fun = function (a) {
-    if (typeof (a) == 'function') {
-        return true
-    }
-    return false
-}
-
-is.truthy = function (a) {
-    if (a && true) {
-        return true
-    }
-    return false
-}
-
-is.falsy = function (a) {
-    if (!(a && true)) {
-        return true
-    }
-    return false
-
-}
+is.num = (a) => typeof a === 'number';
+is.nan = (a) => Number.isNaN(a);
+is.str = (a) => typeof a === 'string';
+is.bool = (a) => typeof a === 'boolean';
+is.undef = (a) => typeof a === 'undefined';
+is.def = (a) => typeof a !== 'undefined';
+is.arr = (a) => Array.isArray(a);
+is.fun = (a) => typeof a === 'function';
+is.truthy = (a) => !!a;
+is.falsy = (a) => !a;
+is.obj = function (a) { return (typeof a === 'object' && !!a && !Array.isArray(a)) };
