@@ -1,7 +1,6 @@
 function repeat(s,i) {
-    var t = s
-    for (let index = 0; index < i-1; index++) {
- 
+    var t = ""
+    for (let index = 0; index < i; index++) {
     t += s
  }
  return t
