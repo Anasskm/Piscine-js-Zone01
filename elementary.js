@@ -1,6 +1,6 @@
 function multiply(a, b) {
     let result = 0;
-    let sign = (a < 0) !== (b < 0) ? -1 : 1;
+    let sign = (a < 0) === (b < 0) 
 
     a = Math.abs(a);
     b = Math.abs(b);
@@ -8,17 +8,17 @@ function multiply(a, b) {
     for (let i = 0; i < b; i++) {
         result += a;
     }
-    if (sign){
-        return -result
+    if (sign) {
+        return result
     }
-    return result;
+    return -result;
 }
 function divide(a, b) {
     if (b === 0) {
-        throw new Error("Division by zero is undefined.");
+       return Infinity;
     }
 
-    let sign = (a < 0) !== (b < 0) ;
+    let sign = (a < 0) === (b < 0);
 
     a = Math.abs(a);
     b = Math.abs(b);
@@ -28,11 +28,14 @@ function divide(a, b) {
         a -= b;
         quotient++;
     }
-    if (sign){
-        return -quotient
+    if (sign) {
+        return quotient
     }
-    return quotient;
+    return -quotient;
 }
 function modulo(a, b) {
+    if (b === 0){
+        return NaN
+    }
     return a - multiply(divide(a, b), b);
 }
