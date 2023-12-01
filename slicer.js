@@ -1,37 +1,34 @@
-function slice(input, start, end) {
-    if (typeof input === 'string') {
-      // If the input is a string
-      return sliceString(input, start, end);
-    } else if (Array.isArray(input)) {
-      // If the input is an array
-      if (start < 0) {
-        start = input.length + start;
-      }
-      if (end < 0) {
-        end = input.length + end;
-      }
-      return sliceArray(input, start, end);
-    } 
-  }
-  
-  // Implement custom slice for strings
-  function sliceString(str, start, end) {
-    if (end === undefined || end > str.length) {
-      end = str.length;
+function slice(a,b,c){
+    var r = [];
+    if (!b && !c){
+        return a;
+    }else{
+        if (!c){
+            if (b<0){b=a.length+b}
+            if (b>=0){
+            for (let i=b;i<a.length;i++){
+                r.push(a[i]);
+            }
+        }else {
+            for (let i=a.length-b;i<a.length;i++){
+                r.push(a[i]);
+            }
+        }
+        }else{
+            if (b<0){b=a.length+b}
+            if (c<0){c=a.length+c}
+            if (b<c){
+            for (let i=b;i<c;i++){
+                r.push(a[i]);
+            }
+        }
+        }
     }
-    if (start < 0) {
-      start = str.length + start;
-    }
-    if (end < 0) {
-      end = str.length + end;
-    }
-    return str.substring(start, end);
-  }
-  
-  // Implement custom slice for arrays
-  function sliceArray(arr, start, end) {
-    if (end === undefined) {
-      end = arr.length;
-    }
-    return arr.slice(start, end);
-  }
+    if (typeof a === 'string'){
+        var s =""
+        for (let i=0;i<r.length;i++){
+            s= s+r[i];
+        }
+        return s
+    }else{return r}
+}
