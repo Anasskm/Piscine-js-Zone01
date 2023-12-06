@@ -32,6 +32,6 @@ function trimTemp(arr) {
     return out
 }
 function tempForecasts(arr) {
-    const out = arr.map((obj) => String(Math.floor((5 / 9) * (parseFloat(obj.temperature) - 32)) + "°Celsius") + ' in ' + obj.city + ', ' + obj.state.charAt(0).toUpperCase() + obj.state.slice(1).toLowerCase())
+    const out = arr.map((obj) => String(Math.floor((5 / 9) * (parseFloat(obj.temperature) - 32)) + "°Celsius") + ' in ' + obj.city + ', ' + obj.state.split(" ").map(elem=>(elem[0].toUpperCase() + elem.slice(1).toLowerCase())).join(" "))
     return out
 }
