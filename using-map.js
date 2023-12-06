@@ -19,7 +19,7 @@ function upperCasingStates(arr) {
 function fahrenheitToCelsius(far) {
     const out = far.map((elem) => {
         let c = (5 / 9) * (parseFloat(elem) - 32)
-        return Math.round(c)+ '°C'
+        return Math.floor(c)+ '°C'
     }
     )
     return out
@@ -32,6 +32,6 @@ function trimTemp(arr) {
     return out
 }
 function tempForecasts(arr) {
-    const out = arr.map((obj) => String(Math.round((5 / 9) * (parseFloat(obj.temperature) - 32)) + "°Celsius") + ' in ' + obj.city + ', ' + obj.state.charAt(0).toUpperCase() + obj.state.slice(1).toLowerCase())
+    const out = arr.map((obj) => String(Math.floor((5 / 9) * (parseFloat(obj.temperature) - 32)) + "°Celsius") + ' in ' + obj.city + ', ' + obj.state.charAt(0).toUpperCase() + obj.state.slice(1).toLowerCase())
     return out
 }
