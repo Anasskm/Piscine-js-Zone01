@@ -18,8 +18,8 @@ function upperCasingStates(arr) {
 }
 function fahrenheitToCelsius(far) {
     const out = far.map((elem) => {
-        let c = Math.round(5 / 9) * (parseFloat(elem) - 32)
-        return String(c)+'°C'
+        let c = (5 / 9) * (parseFloat(elem) - 32)
+        return Math.round(c)+ '°C'
     }
     )
     return out
