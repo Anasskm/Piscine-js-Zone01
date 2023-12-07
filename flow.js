@@ -1,3 +1,1 @@
-const flow = (a) => function c(x) {
-    return a.reduce((acc, cur) => cur(acc),x)
-}
+const flow = arr => (...args) => arr.reduce((acc, fn) => [fn(...acc)], args).pop()
