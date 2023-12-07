@@ -1,24 +1,28 @@
 const map = (f, a) => {
-    const result = []
-    a.forEach(element => {
-        result.push(f(element))
-    });
+    let result = []
+    for (let i = 0; i < a.length; i++) {
+        result.push(f(a[i]))
+
+    }
     return result
 }
 
 
 
 const flatMap = (f, a) => {
-    const result = []
-    a.forEach(element => {
-        if (Array.isArray(f(element))) {
-            f(element).forEach(e => {
-                result.push(e)
-
-            });
+  let result = []
+    for (let i = 0; i < a.length; i++) {
+        if (Array.isArray(f(a[i]))) {
+            for (let j = 0; j < f(a[i]).length; j++) {
+                result.push(f(a[i])[j])
+                
+            }
         } else {
-            result.push(f(element))
+            result.push(f(a[i]))
         }
-    });
+
+    }
+
+
     return result
 }
