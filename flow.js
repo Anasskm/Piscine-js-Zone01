@@ -1,3 +1,3 @@
-const flow = (f,g) => function c(x){
-    return g(f(x))
+const flow = (a) => function c(x) {
+    return a.reduce((acc, cur) => cur(acc),x)
 }
