@@ -2,28 +2,19 @@ import { styles } from './pimp-my-style.data.js'
 
 const style = styles
 var count = 0
-var reverse = styles.length - 1
+
 const pimp = () => {
-    let bu = document.getElementsByTagName("button")
-    Array.from(bu[0].classList).includes('unpimp') ? (() => {
-        reverse === -1 ? (() => {
-            bu[0].classList.remove('unpimp')
-            reverse = styles.length - 1
-        })() : (() => {
-            bu[0].classList.remove(style[reverse])
-            reverse--
-        })()
+    let bu = document.getElementsByTagName("button")[0]
+    !bu.classList.contains("unpimp") ? (() => {
+        bu.classList.add(style[count])
+        count++
     })() : (() => {
-        count === style.length ? (() => {
-            bu[0].classList.add('unpimp')
-            count = 0
-        })() : (() => {
-            bu[0].classList.add(style[count])
-            count++
-        })()
+        count--
+        bu.classList.remove(style[count])
 
-
+        count === 0 && (bu.classList.toggle('unpimp'))
     })()
+    count === styles.length && (bu.classList.toggle("unpimp"))
 }
 
 export { pimp }
