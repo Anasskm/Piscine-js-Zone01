@@ -35,7 +35,7 @@ function compareCoordinates(a, b) {
   const aCoords = getCoords(a.coordinates);
   const bCoords = getCoords(b.coordinates);
 
-  return aCoords.localeCompare(bCoords);
+  return bCoords.localeCompare(aCoords);
 }
 
 function getCoords(coordString) {
