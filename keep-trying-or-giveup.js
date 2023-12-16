@@ -1,34 +1,38 @@
-
-function retry(c = 3, call_back = async () => {}) {
+function retry(c, call_back) {
     return async function (...args) {
-        try {
-            const res = await call_back(...args);
-            return res;
-        } catch (e) {
-            if (c > 0) {
-                return retry(c - 1, call_back)(...args);
-            } else {
-                throw e;
+        let err = 1;
+        let res;
+
+        while (err <= c) {
+            try {
+                res = await call_back(...args);
+                console.log("arg:", args, "Err# " + err, res);
+                return res;
+            } catch (e) {
+                err++;
+                if (err > c) throw e;
             }
         }
+
+        return res;
     };
 }
 
-// t_out 
-function timeout(delay = 0, call_back = async () => {}) {
+let o = 0;
+function timeout(d, call_back) {
     return async function (...args) {
-        const timeout = new Promise((resolve) =>
-            setTimeout(resolve, delay, Error('timeout'))
-        );
-        const functionCall = new Promise((resolve) =>
-            resolve(call_back(...args))
-        );
-        const res = await Promise.race([timeout, functionCall]).then(
-            (res) => res
-        );
-        if (res instanceof Error) {
-            throw res;
-        }
-        return res;
+        return new Promise((resolve, reject) => {
+            o++;
+            const delayedCallback = () => {
+                reject(Error('timeout'));
+            };
+
+            setTimeout(delayedCallback, o === 3 ? d : 0);
+
+            setTimeout(async () => {
+                const res = await call_back(...args);
+                resolve(res);
+            }, d);
+        });
     };
 }
